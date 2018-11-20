@@ -144,7 +144,7 @@ public class Controller {
                                 break;
                             } else if (str.startsWith("/regok")) {
                                 System.out.println("registration -ok.");
-                                printLeftOrRight("Пользователь добавлен.");
+                                printLeftOrRight("User added successfully.");
                                 regFormVisible = false;
                                 registerFormVisible();
                                 break;
@@ -233,7 +233,7 @@ public class Controller {
 
     public void tryToAuth(ActionEvent actionEvent) {
         if (loginField.getText().equals("") || passwordField.getText().equals("")) {
-            printLeftOrRight("Поля не могут быть пустыми");
+            printLeftOrRight("You should fill all the fields.");
         } else {
             if (socket == null || socket.isClosed()) {   // при неверном вводе пароля и попытке зайти второй раз  не сработает  условие, если не закрыть сокет
                 // сокет закрываем в стр. 103 этого же класса
@@ -258,7 +258,7 @@ public class Controller {
         String nick = regNickField.getText();
 
         if (login.equals("") || password.equals("") || nick.equals(""))
-            printLeftOrRight("Поля не должны быть пустыми...");
+            printLeftOrRight("You should fill all the fields..");
         else {
             if (socket == null || socket.isClosed()) {   // при неверном вводе пароля и попытке зайти второй раз  не сработает  условие, если не закрыть сокет
                 // сокет закрываем в стр. 103 этого же класса
@@ -295,7 +295,7 @@ public class Controller {
 
         String newNick = changeNickField.getText();
 
-        if (newNick.equals("")) printLeftOrRight("Поле не должно быть пустыми.");
+        if (newNick.equals("")) printLeftOrRight("You should fill all the fields..");
         else {
             try {
                 out.writeUTF("/chnick " + newNick);

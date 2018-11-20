@@ -52,13 +52,13 @@ public class ClientHandler {
                                         server.subscribe(ClientHandler.this);
                                         break;
                                     } else {
-                                        sendMsg("Не верный логин/пароль");
-                                        System.out.println("Не верный логин/пароль");
+                                        sendMsg("Wrong logging/password");
+                                        System.out.println("Wrong logging/password");
                                         break; // тут нужен  для того чтобы закрыть сокет, если не верно ввели пароль,
                                         // а для этого надо обработать команду /end, т.е. надо выйти из цикла
                                     }
                                 } else {
-                                    sendMsg("Такой пользователь уже в сети");
+                                    sendMsg("This user is in logged already.");
                                     break; // аналогичная ситуация, что и с неверно введенным паролем
                                 }
                             }
@@ -81,7 +81,6 @@ public class ClientHandler {
                         while (true) {
                             Timer timer;
                             long delay=60000;
-//              вариант 2 через встроенный таймер
                             timer=new Timer();
                             System.out.println("........timer - start");
                             timer.schedule(new TimerTask() {
@@ -162,9 +161,5 @@ public class ClientHandler {
             e.printStackTrace();
         }
     }
-
-//    public void deleteFromVector() {
-//        server.deleteClient(this);
-//    }
 
 }
